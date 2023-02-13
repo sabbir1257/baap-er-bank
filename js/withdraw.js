@@ -24,19 +24,26 @@ document.getElementById('btn-withdrow').addEventListener('click', function(){
     const pheviousWithdrawTotalString = withdrawTotalElement.innerText;
     const pheviousWithdrawTotal = parseFloat(pheviousWithdrawTotalString);
 
-    // step-4
-    const currentWithdrawTotal = pheviousWithdrawTotal + newWithdrawAmount;
-    withdrawTotalElement.innerText = currentWithdrawTotal;
+    // step-7
+    withdrawFilde.value = '';
     
     // step-5
     const balanceTotalElement = document.getElementById('balance-total');
     const pheviousBalanceTotalString = balanceTotalElement.innerText;
     const pheviousBalanceTotal = parseFloat(pheviousBalanceTotalString);
 
+    if(newWithdrawAmount > pheviousBalanceTotal){
+        alert('Baap ar bank e eto taka nai');
+        return;
+    }
+
+     // step-4
+     const currentWithdrawTotal = pheviousWithdrawTotal + newWithdrawAmount;
+     withdrawTotalElement.innerText = currentWithdrawTotal;
+
     // step-6
     const currentBalanceTotal = pheviousBalanceTotal - newWithdrawAmount;
     balanceTotalElement.innerText = currentBalanceTotal;
 
-    // step-7
-    withdrawFilde.value = '';
+   
 });
