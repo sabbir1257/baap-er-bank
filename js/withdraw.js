@@ -19,14 +19,19 @@ document.getElementById('btn-withdrow').addEventListener('click', function(){
     const newWithdrawAmountString = withdrawFilde.value;
     const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 
+     // step-7
+     withdrawFilde.value = '';
+
+    if(isNaN(newWithdrawAmount)){
+        alert('Please provide a valid number');
+        return;
+    }
+
     // step-3
     const withdrawTotalElement = document.getElementById('withdraw-total');
     const pheviousWithdrawTotalString = withdrawTotalElement.innerText;
     const pheviousWithdrawTotal = parseFloat(pheviousWithdrawTotalString);
-
-    // step-7
-    withdrawFilde.value = '';
-    
+   
     // step-5
     const balanceTotalElement = document.getElementById('balance-total');
     const pheviousBalanceTotalString = balanceTotalElement.innerText;
